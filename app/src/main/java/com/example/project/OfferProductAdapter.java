@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class OfferProductAdapter extends RecyclerView.Adapter<OfferProductAdapter.OfferProductViewHolder>{
+    ArrayList<OfferProduct> arrayList ;
+    Context context;
+
+    public OfferProductAdapter(ArrayList<OfferProduct> arrayList, Context context) {
+        this.arrayList = arrayList;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -22,12 +33,14 @@ public class OfferProductAdapter extends RecyclerView.Adapter<OfferProductAdapte
 
     @Override
     public void onBindViewHolder(@NonNull OfferProductViewHolder holder, int position) {
-
+        OfferProduct offerProducts =arrayList.get(position);
+        holder.tvOfferPercent.setText(offerProducts.getOfferPercent());
+        Picasso.get().load(offerProducts.getImageUrl()).into(holder.image);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return arrayList.size();
     }
 
     public class OfferProductViewHolder extends RecyclerView.ViewHolder{

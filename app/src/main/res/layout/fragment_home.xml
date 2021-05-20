@@ -3,10 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_offer_products"
+        android:text="OFFER PRODUCTS"
+        android:textStyle="bold|italic"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/offer_products"
+        android:id="@+id/rv_offer_products"
+        android:orientation="horizontal"
+        android:layout_below="@id/tv_offer_products"
         android:overScrollMode="never"/>
 
 </RelativeLayout>
